@@ -1,12 +1,12 @@
-let corn=5;
-let max=5;
+let corn=0;
+let max=7;
 let start_mult=0;
 let ver=360; //vertices
 let dif=0.008;
 let base_point=1; // 1-start in corner; 0-start in middle of edge;
 let edge=1;
 let saturation=100;
-let alpha=120;
+let alpha=180;
 
 let mult=start_mult;
 let dir=1;
