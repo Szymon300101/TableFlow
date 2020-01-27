@@ -5,8 +5,8 @@ let ver=360; //vertices
 let dif=0.008;
 let base_point=1; // 1-start in corner; 0-start in middle of edge;
 let edge=1;
-let saturation=100;
-let alpha=180;
+let saturation=160;
+let alpha=100;
 
 let mult=start_mult;
 let dir=1;
@@ -263,5 +263,5 @@ function keyPressed()
       break;
     }
   }
-  if(key=="Enter") mult=start_mult;
+  if(key=="Enter") mult=start_mult+0.001;
 }
