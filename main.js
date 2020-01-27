@@ -1,6 +1,6 @@
 let corn=0;
 let max=7;
-let start_mult=0;
+let start_mult=0; 
 let ver=360; //vertices
 let dif=0.008;
 let base_point=1; // 1-start in corner; 0-start in middle of edge;
