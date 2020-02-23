@@ -136,9 +136,9 @@ function GUI()
     fill(255);
     text("+",80,75);
     fill(190,209,255);
-    rect(20,100,80,30);
+    rect(20,100,60,30);
     fill(255);
-    text("HIDE",60,115);
+    text("HIDE",50,115);
   }
   
    resetMatrix();
