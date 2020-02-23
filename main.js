@@ -121,18 +121,36 @@ function GUI()
   text("[SPACE] - show/hide GUI",0,0)
   text("[Arrows] - using menu",0,20)
   text("[Enter] - restart animation",0,40)
+  if(deviceOrientation!='undefined')
+  {
+    textFont("Courier New",20);
+    textAlign(CENTER,CENTER);
+    fill(190,209,255);
+    rect(0,60,40,30);
+    fill(255);
+    text("-",20,75);
+    fill(190,209,255);
+    rect(60,60,40,30);
+    fill(255);
+    text("+",80,75);
+  }
   
   resetMatrix();
+}
+
+function touchStarted() {
+  width-255,height-160
+  if(touches[0].x>width-255 && touches[0].x<width-205 && touches[0].y>height-100 && touches[0].y<height-70)
+    decrement();
+  if(touches[0].x>width-195 && touches[0].x<width-155 && touches[0].y>height-100 && touches[0].y<height-70)
+    increment();
 }
 
 function menu_box(position,name,value,style,max,step=1)
 {
   let y=position*45-40;
   noStroke();
-  if(mouseX>width-170 && mouseX<width-10 && mouseY>y+10 && mouseY<y+50)
-    fill(100,255,255);
-  else
-    fill(190,209,255);
+  fill(190,209,255);
   rect(0,y,160,40);
   fill(255);
   textFont("Courier New",15);
@@ -170,6 +188,11 @@ function menu_box(position,name,value,style,max,step=1)
     }
     break;
   }
+
+  if(mouseX>width-170 && mouseX<width-10 && mouseY>y+10 && mouseY<y+50)
+  {
+    m_pos=position;
+  }
 }
 
 
@@ -190,7 +213,24 @@ function keyPressed()
 
   if(key=="ArrowLeft")
   {
-    switch(m_pos)
+    increment()
+  }
+  if(key=="ArrowRight")
+  {
+    decrement();
+  }
+  if(key=="Enter") mult=start_mult+0.001;
+}
+
+function mouseWheel(event) 
+{
+  if(event.delta>0) increment();
+  else decrement();
+}
+
+function increment()
+{
+  switch(m_pos)
     {
       case 1:
         if(corn>3)corn--;
@@ -226,9 +266,9 @@ function keyPressed()
         if(alpha>20) alpha-=20;
       break;
     }
-  }
-  if(key=="ArrowRight")
-  {
+}
+
+function decrement() {
     switch(m_pos)
     {
       case 1:
@@ -265,6 +305,4 @@ function keyPressed()
         if(alpha<240) alpha+=20;
       break;
     }
-  }
-  if(key=="Enter") mult=start_mult+0.001;
 }
