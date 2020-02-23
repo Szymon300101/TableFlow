@@ -135,7 +135,7 @@ function GUI()
     text("+",80,75);
   }
   
-  resetMatrix();
+   resetMatrix();
 }
 
 function touchStarted() {
