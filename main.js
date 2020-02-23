@@ -1,10 +1,10 @@
-let corn=0;
-let max=7;
-let start_mult=0; 
-let ver=360; //vertices
-let dif=0.008;
-let base_point=1; // 1-start in corner; 0-start in middle of edge;
-let edge=1;
+let corn=0;         //number of corners
+let max=7;          //max mult value
+let start_mult=0;   //starting and minimal mult value
+let ver=360;        //vertices
+let dif=0.008;      //increment of mult in each draw()
+let base_point=1;   // 1-start in corner; 0-start in middle of edge;
+let edge=1;         //if edge is visible: 1
 let saturation=160;
 let alpha=100;
 
@@ -133,17 +133,13 @@ function GUI()
     rect(60,60,40,30);
     fill(255);
     text("+",80,75);
+    fill(190,209,255);
+    rect(20,100,80,30);
+    fill(255);
+    text("HIDE",60,115);
   }
   
    resetMatrix();
-}
-
-function touchStarted() {
-  width-255,height-160
-  if(touches[0].x>width-255 && touches[0].x<width-205 && touches[0].y>height-100 && touches[0].y<height-70)
-    decrement();
-  if(touches[0].x>width-195 && touches[0].x<width-155 && touches[0].y>height-100 && touches[0].y<height-70)
-    increment();
 }
 
 function menu_box(position,name,value,style,max,step=1)
@@ -226,6 +222,16 @@ function mouseWheel(event)
 {
   if(event.delta>0) increment();
   else decrement();
+}
+
+function touchStarted() {
+  if(m_pos=0)m_pos=1;
+  if(touches[0].x>width-255 && touches[0].x<width-205 && touches[0].y>height-100 && touches[0].y<height-70)
+    increment();
+  if(touches[0].x>width-195 && touches[0].x<width-155 && touches[0].y>height-100 && touches[0].y<height-70)
+    decrement();
+  if(touches[0].x>width-195 && touches[0].x<width-155 && touches[0].y>height-100 && touches[0].y<height-70)
+    m_pos=0;
 }
 
 function increment()
