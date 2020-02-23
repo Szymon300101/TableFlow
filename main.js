@@ -116,12 +116,14 @@ function GUI()
   translate(width-255,height-160);
 
   noStroke();
+  if(deviceOrientation=='undefined')
+  {
   fill(255);
   textFont("Courier New",15);
   text("[SPACE] - show/hide GUI",0,0)
   text("[Arrows] - using menu",0,20)
   text("[Enter] - restart animation",0,40)
-  if(deviceOrientation!='undefined')
+  }else 
   {
     textFont("Courier New",20);
     textAlign(CENTER,CENTER);
@@ -225,7 +227,7 @@ function mouseWheel(event)
 }
 
 function touchStarted() {
-  if(m_pos=0)m_pos=1;
+  if(m_pos==0 && touches.lenght>0) m_pos=1;
   if(touches[0].x>width-255 && touches[0].x<width-205 && touches[0].y>height-100 && touches[0].y<height-70)
     increment();
   if(touches[0].x>width-195 && touches[0].x<width-155 && touches[0].y>height-100 && touches[0].y<height-70)
