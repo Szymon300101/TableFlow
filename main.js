@@ -1,3 +1,4 @@
+//GUI variables
 let corn=0;         //number of corners
 let max=7;          //max mult value
 let start_mult=0;   //starting and minimal mult value
@@ -5,14 +6,15 @@ let ver=360;        //vertices
 let dif=0.008;      //increment of mult in each draw()
 let base_point=1;   // 1-start in corner; 0-start in middle of edge;
 let edge=1;         //if edge is visible: 1
-let saturation=160;
-let alpha=100;
+let saturation=160; //saturation of lines
+let alpha=100;      //opacity of liness
 
-let mult=start_mult;
-let dir=1;
-let m_pos=1;
-const m_max=9;
-let r;
+//system valriables
+let mult=start_mult;//number multipling each vertex
+let dir=1;          //if mult is rising: 1
+let m_pos=1;        //position of cursor in menu
+const m_max=9;      //number of tiles in menu
+let r;              //radius of circle
 
 function setup()
 {
@@ -28,21 +30,21 @@ function draw()
   background(0);
   noFill();
   applyMatrix();
-  translate(width/2,height/2);
-  rotate(PI/2);
-  if(corn==0)
+  translate(width/2,height/2);  //center of the screen
+  rotate(PI/2);                 //0 up
+  if(corn==0)       //if the figure is circle
   {
     r=height/3;
     stroke(255);
-    if(edge==1) circle(0,0,r);
-    for(let i=0;i<ver;i++)
+    if(edge==1) circle(0,0,r); 
+    for(let i=0;i<ver;i++)                //drawing lines
     {
-      stroke(map(i,0,ver,128+dir*128,128-dir*128),saturation,250,alpha);
-      let p1=getXY(r,dir*TWO_PI/ver*i);
-      let p2=getXY(r,dir*TWO_PI/ver*(i*mult%ver));
-      line(p1.x,p1.y,p2.x,p2.y);
+      stroke(map(i,0,ver,128+dir*128,128-dir*128),saturation,250,alpha);  //mapping color
+      let p1=getXY(r,dir*TWO_PI/ver*i);             //calculating Pitagorian coordinates of 1. point
+      let p2=getXY(r,dir*TWO_PI/ver*(i*mult%ver));  //calculating Pitagorian coordinates of 2. point
+      line(p1.x,p1.y,p2.x,p2.y);      //line
     }
-  }else if(corn>2)
+  }else if(corn>2)  //if the figure is poligon
   {
     r=height/3*cos(TWO_PI/corn/2);
     stroke(255);
@@ -227,12 +229,12 @@ function mouseWheel(event)
 }
 
 function touchStarted() {
-  if(m_pos==0 && touches.lenght>0) m_pos=1;
+  if(m_pos==0 && touches.length>0) m_pos=1;
   if(touches[0].x>width-255 && touches[0].x<width-205 && touches[0].y>height-100 && touches[0].y<height-70)
     increment();
   if(touches[0].x>width-195 && touches[0].x<width-155 && touches[0].y>height-100 && touches[0].y<height-70)
     decrement();
-  if(touches[0].x>width-195 && touches[0].x<width-155 && touches[0].y>height-100 && touches[0].y<height-70)
+  if(touches[0].x>width-215 && touches[0].x<width-175 && touches[0].y>height-60 && touches[0].y<height-30)
     m_pos=0;
 }
 
