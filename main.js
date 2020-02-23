@@ -129,7 +129,10 @@ function menu_box(position,name,value,style,max,step=1)
 {
   let y=position*45-40;
   noStroke();
-  fill(190,209,255);
+  if(mouseX>width-170 && mouseX<width-10 && mouseY>y+10 && mouseY<y+50)
+    fill(100,255,255);
+  else
+    fill(190,209,255);
   rect(0,y,160,40);
   fill(255);
   textFont("Courier New",15);
