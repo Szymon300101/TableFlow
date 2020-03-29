@@ -1,7 +1,7 @@
 # TableFlow
 
 App written in JavaScript using p5.js library.  
-Inspired by Daniel Shiffamn's video: https://www.youtube.com/watch?v=bl3nc_a1nvs&t=217s  
+Inspired by Daniel Shiffman's video: https://www.youtube.com/watch?v=bl3nc_a1nvs&t=217s  
   
 Short word about options in the app:  
 -Corners: Number of corners of Poligon, 0 for circle  
