@@ -2,8 +2,9 @@
 
 App written in JavaScript using p5.js library.  
 Inspired by Daniel Shiffman's video: https://www.youtube.com/watch?v=bl3nc_a1nvs&t=217s  
+It is based on cardioid generation with timestables, but it's expanded far beyond standard parameters. The app allows to change geometry, animation params and look of the results, to create best looking results.
   
-Short word about options in the app:  
+Short note about options in the app:  
 -Corners: Number of corners of Poligon, 0 for circle  
 -Max mult/Starting mult: edge multiplication parameters (animation is kind of loop)  
 -Num of lines: quite obvious  (from 30 to 450)  
